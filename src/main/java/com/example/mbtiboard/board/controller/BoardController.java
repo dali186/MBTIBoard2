@@ -30,7 +30,8 @@ public class BoardController {
     }
 
     @GetMapping("/board/write")
-    public String getBoardWritePage(Model model, BoardRequestDTO boardRequestDto) {
+    public String getBoardWritePage(Model model, BoardRequestDTO boardRequestDTO) {
+        model.addAttribute("boardRequestDTO", boardRequestDTO);
         return "/board/write";
     }
 
