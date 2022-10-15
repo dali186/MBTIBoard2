@@ -1,10 +1,10 @@
-package com.example.mbtiboard.account.controller;
+package com.example.mbtiboard.controller;
 
-import com.example.mbtiboard.account.config.auth.PrincipalDetails;
-import com.example.mbtiboard.account.dto.AccountDTO;
-import com.example.mbtiboard.account.entity.Account;
-import com.example.mbtiboard.account.repository.AccountRepository;
-import com.example.mbtiboard.account.service.AccountService;
+import com.example.mbtiboard.config.auth.PrincipalDetails;
+import com.example.mbtiboard.dto.AccountDTO;
+import com.example.mbtiboard.entity.Account;
+import com.example.mbtiboard.repository.AccountRepository;
+import com.example.mbtiboard.service.AccountService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,24 +30,6 @@ public class IndexController {
     public String index() {
         return "index";
     }
-
-    //ouath,일반 로그인 둘 다 가능
-    @GetMapping("/user")
-    public @ResponseBody String user(@AuthenticationPrincipal PrincipalDetails principalDetails) {
-        System.out.println("principalDetails:" + principalDetails.getAccount());
-        return "user";
-    }
-
-    @GetMapping("/manager")
-    public @ResponseBody String manager() {
-        return "manager";
-    }
-
-    @GetMapping("/admin")
-    public@ResponseBody  String admin() {
-        return "admin";
-    }
-
     @GetMapping("/loginForm")
     public String loginForm() {
         return "/loginForm";
@@ -68,24 +50,20 @@ public class IndexController {
         return "redirect:/loginForm";
     }
 
-    @GetMapping("/joinModify")
+    @GetMapping("/modForm")
     public String updateJoin(Principal principal, Model model) {
         String userId = principal.getName();
         Account account = accountRepository.findByUserEmail(userId);
         model.addAttribute("accountDTO", account);
-        return "joinForm";
+        return "modForm";
     }
 
-    @Secured("ROLE_ADMIN")  //EnableGlobalMethodSecurity와 함께 특정 메소드에만 적용시키기
-    @GetMapping("/info")
-    public @ResponseBody String info() {
-        return "개인정보";
+    @PostMapping("/modForm")
+    public String acceptMod(@Validated AccountDTO accountDTO, BindingResult result) {
+        if (result.hasErrors()) {
+            return "modForm";
+        }
+        accountService.updateAccount(accountDTO);
+        return "index";
     }
-
-    @Secured("ROLE_ADMIN")
-    @GetMapping("/adminpage")
-    public String adminPage() {
-        return "adminPage";
-    }
-
 }

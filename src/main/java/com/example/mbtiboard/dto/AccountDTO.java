@@ -1,6 +1,6 @@
-package com.example.mbtiboard.account.dto;
+package com.example.mbtiboard.dto;
 
-import com.example.mbtiboard.account.entity.Account;
+import com.example.mbtiboard.entity.Account;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -46,6 +46,19 @@ public class AccountDTO {
                 .userNo(userNo)
                 .userEmail(userEmail)
                 .userPasswd(new BCryptPasswordEncoder().encode(userPasswd))
+                .userName(userName)
+                .userBirth(userBirth)
+                .userGender(userGender)
+                .userPhone(userPhone)
+                .userRole(userRole)
+                .build();
+    }
+
+    public Account toEntities() {
+        return Account.builder()
+                .userNo(userNo)
+                .userEmail(userEmail)
+                .userPasswd(userPasswd)
                 .userName(userName)
                 .userBirth(userBirth)
                 .userGender(userGender)

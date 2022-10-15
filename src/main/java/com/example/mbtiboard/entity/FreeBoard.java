@@ -1,4 +1,4 @@
-package com.example.mbtiboard.board.entity;
+package com.example.mbtiboard.entity;
 
 import lombok.*;
 
@@ -6,14 +6,14 @@ import javax.persistence.*;
 
 @Entity
 @Data
-@Getter
 @ToString
+@Getter
 @NoArgsConstructor
-public class Board extends BaseTimeEntity{
+public class FreeBoard extends BaseTime{
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "board_no")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long boardNo;
 
     @Column(name = "board_title")
@@ -22,18 +22,14 @@ public class Board extends BaseTimeEntity{
     @Column(name = "board_content")
     private String boardContent;
 
-    @Column(name = "board_views")
-    private int boardViews;
-
     @Column(name = "board_author")
     private String boardAuthor;
 
     @Builder
-    public Board(Long boardNo, String boardTitle, String boardContent, int boardViews, String boardAuthor) {
+    public FreeBoard(Long boardNo, String boardTitle, String boardContent, String boardAuthor) {
         this.boardNo = boardNo;
         this.boardTitle = boardTitle;
         this.boardContent = boardContent;
-        this.boardViews = boardViews;
         this.boardAuthor = boardAuthor;
     }
 }

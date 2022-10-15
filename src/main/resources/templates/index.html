@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
     <title>얼음땡</title>
     <meta charset="utf-8">
@@ -14,8 +14,10 @@
 <nav id="header">
     <div id="right-menu">
         <li>
-            <a id="mypage" href="#">내 정보</a>
-            <a id="login" th:href="@{/loginForm}">로그인</a>
+            <span th:if="${#session?.getId()}" sec:authentication="name"></span>
+            <a id="mypage" th:if="${#session?.getId()}" th:href="@{modForm}">마이페이지</a>
+            <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
+            <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
         </li>
     </div>
     <div>

@@ -6,7 +6,7 @@
 
 	<link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-	<link rel="stylesheet" href="free.css">
+	<link rel="stylesheet" th:href="@{/css/free.css}">
 
 </head>
 
@@ -15,7 +15,7 @@
 	<div id="right-menu">
 		<li>
 			<a id="mypage" href="#">내 정보</a>
-			<a id="login" href="./login.html">로그인</a>
+			<a id="login" th:href="@{/loginForm}">로그인</a>
 		</li>
 	</div>
 	<div>
@@ -23,7 +23,7 @@
 
 			<ul id="dropmenu">
 				<a id="navbar-brand" href="index.html">
-					<img src="logo.png" height="50px">
+					<img th:src="@{/img/logo.png}" height="50px">
 
 				</a>
 				<li>

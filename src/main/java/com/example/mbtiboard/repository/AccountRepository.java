@@ -1,7 +1,7 @@
-package com.example.mbtiboard.account.repository;
+package com.example.mbtiboard.repository;
 
 
-import com.example.mbtiboard.account.entity.Account;
+import com.example.mbtiboard.entity.Account;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 //CRUD

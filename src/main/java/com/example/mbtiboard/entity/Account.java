@@ -1,4 +1,4 @@
-package com.example.mbtiboard.account.entity;
+package com.example.mbtiboard.entity;
 
 import lombok.*;
 import org.hibernate.annotations.CreationTimestamp;
@@ -11,7 +11,7 @@ import java.sql.Timestamp;
 @ToString
 @Getter
 @NoArgsConstructor
-public class Account {
+public class Account extends BaseTime{
 
     @Id
     @Column(name = "user_account")
@@ -34,9 +34,6 @@ public class Account {
 
     private String provider;
     private String providerId;
-    @CreationTimestamp
-    private Timestamp create_date;
-
     @Builder
     public Account(Long userNo, String userEmail, String userPasswd, String userName, String userBirth, String userGender, String userPhone, String userRole, String provider, String providerId) {
         this.userNo = userNo;

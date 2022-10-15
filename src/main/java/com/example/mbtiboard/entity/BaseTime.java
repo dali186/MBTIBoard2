@@ -1,6 +1,5 @@
-package com.example.mbtiboard.board.entity;
+package com.example.mbtiboard.entity;
 
-import lombok.Data;
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
@@ -11,16 +10,16 @@ import javax.persistence.EntityListeners;
 import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
-@Getter
 @MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
-public class BaseTimeEntity {
+@EntityListeners(value = {AuditingEntityListener.class})
+@Getter
+public class BaseTime {
 
     @CreatedDate
-    @Column(name = "register_time")
-    private LocalDateTime registerTime;
+    @Column(name = "regdate", updatable = false)
+    private LocalDateTime regDate;
 
     @LastModifiedDate
-    @Column(name = "update_time")
-    private LocalDateTime updateTime;
+    @Column(name = "moddate")
+    private LocalDateTime modDate;
 }
