@@ -19,7 +19,7 @@ public class FreeBoard extends BaseTime{
     @Column(name = "board_title")
     private String boardTitle;
 
-    @Column(name = "board_content")
+    @Column(name = "board_content", length = 5000)
     private String boardContent;
 
     @Column(name = "board_author")

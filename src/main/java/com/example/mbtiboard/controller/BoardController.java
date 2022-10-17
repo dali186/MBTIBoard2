@@ -16,6 +16,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import java.io.IOException;
+
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
@@ -23,18 +25,21 @@ public class BoardController {
     private final FreeBoardService freeBoardService;
 
     @GetMapping("/board/freewrite")
-    public String freeWrite(Model model, FreeBoardDTO freeBoardDTO) {
-        model.addAttribute("freeBoardDTO", freeBoardDTO);
+    public String freeWrite() {
         return "/board/write";
     }
 
     @PostMapping("/board/freewrite/action")
-    public String freeBoardWriteAction(Model model, FreeBoardDTO freeBoardDTO) {
+    public String freeBoardWriteAction(Model model, FreeBoard freeBoard) throws IOException {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userId = ((UserDetails)principal).getUsername();
-        freeBoardDTO.setBoardAuthor(userId);
-        freeBoardService.createFreeBoard(freeBoardDTO);
-        return "index";
+        freeBoard.setBoardAuthor(userId);
+        freeBoardService.write(freeBoard);
+
+        model.addAttribute("message", "게시글이 등록되었습니다.");
+        model.addAttribute("searchUrl", "/board/freelist");
+
+        return "board/freewritems";
     }
 
     @GetMapping("/board/freelist")
@@ -63,5 +68,30 @@ public class BoardController {
     public String freeView(Model model, @PathVariable("boardNo") Long boardNo) {
         model.addAttribute("FreeBoard", freeBoardService.view(boardNo));
         return "board/view";
+    }
+
+    @GetMapping("/board/freedel/{boardNo}")
+    public String freeDel(@PathVariable("boardNo") Long boardNo) {
+        freeBoardService.deleteById(boardNo);
+
+        return "redirect:/board/freelist";
+    }
+
+    @GetMapping("/board/modify/{boardNo}")
+    public String freeMod(@PathVariable("boardNo") Long boardNo, Model model) {
+        model.addAttribute("Freeboard", freeBoardService.view(boardNo));
+
+        return "board/modify";
+    }
+
+    @PostMapping("/board/update/{boardNo}")
+    public String freeUpdate(@PathVariable("boardNo") Long boardNo, FreeBoard freeBoard) throws IOException{
+        FreeBoard freeBoardTemp = freeBoardService.view(boardNo);
+        freeBoardTemp.setBoardTitle(freeBoard.getBoardTitle());
+        freeBoardTemp.setBoardContent(freeBoard.getBoardContent());
+
+        freeBoardService.write(freeBoardTemp);
+
+        return "redirect:/board/freelist";
     }
 }

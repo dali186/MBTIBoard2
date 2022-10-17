@@ -9,6 +9,8 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -17,10 +19,8 @@ public class FreeBoardService {
     private final FreeBoardRepository freeBoardRepository;
 
     @Transactional
-    public Long createFreeBoard(FreeBoardDTO freeBoardDTO) {
-        FreeBoard board = freeBoardDTO.toEntity();
-        freeBoardRepository.save(board);
-        return board.getBoardNo();
+    public void write (FreeBoard freeBoard) throws IOException {
+        freeBoardRepository.save(freeBoard);
     }
 
     public Page<FreeBoard> list(Pageable pageable) {
@@ -35,4 +35,6 @@ public class FreeBoardService {
         return freeBoardRepository.findById(boardNo)
                 .orElseThrow(()->new RuntimeException("다시 입력해주세요."));
     }
+    @Transactional
+    public void deleteById(Long boardNo) {freeBoardRepository.deleteById(boardNo);}
 }
