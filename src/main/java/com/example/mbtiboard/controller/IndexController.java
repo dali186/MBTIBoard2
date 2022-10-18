@@ -30,27 +30,27 @@ public class IndexController {
     public String index() {
         return "index";
     }
-    @GetMapping("/loginForm")
+    @GetMapping("loginForm")
     public String loginForm() {
-        return "/loginForm";
+        return "loginForm";
     }
 
-    @GetMapping("/joinForm")
+    @GetMapping("joinForm")
     public String join(Model model) {
         model.addAttribute("accountDTO", new AccountDTO());
         return "joinForm";
     }
 
-    @PostMapping("/joinForm")
+    @PostMapping("joinForm")
     public String acceptJoin(@Validated AccountDTO accountDTO, BindingResult result) {
         if (result.hasErrors()) {
             return "joinForm";
         }
         accountService.createAccount(accountDTO);
-        return "redirect:/loginForm";
+        return "redirect:loginForm";
     }
 
-    @GetMapping("/modForm")
+    @GetMapping("modForm")
     public String updateJoin(Principal principal, Model model) {
         String userId = principal.getName();
         Account account = accountRepository.findByUserEmail(userId);
@@ -58,7 +58,7 @@ public class IndexController {
         return "modForm";
     }
 
-    @PostMapping("/modForm")
+    @PostMapping("modForm")
     public String acceptMod(@Validated AccountDTO accountDTO, BindingResult result) {
         if (result.hasErrors()) {
             return "modForm";
