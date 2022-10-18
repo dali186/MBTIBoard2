@@ -31,7 +31,7 @@
                 <li>
                     <a id="current">게시판1</a>
                     <ul id="list1">
-                        <li><a href="free.html" id="l1">자유게시판</a></li>
+                        <li><a th:href="@{/board/freelist}" id="l1">자유게시판</a></li>
                         <li><a href="#" id="l1">아무게시판</a></li>
                         <li><a href="#" id="l1">이런게시판</a></li>
                     </ul>
@@ -86,7 +86,7 @@
                         <tr th:each="FreeBoard, board : ${list}">
                             <td th:text="${FreeBoard.boardNo}"></td>
                             <td>
-                                <a th:text="${FreeBoard.boardTitle}" th:href="@{/board/freeview/{id}(id=${FreeBoard.boardNo})}"></a>
+                                <a th:text="${FreeBoard.boardTitle}" th:href="@{board/freeview/{id}(id=${FreeBoard.boardNo})}"></a>
                             </td>
                             <td th:text="${FreeBoard.boardAuthor}"></td>
                             <td th:text="${FreeBoard.regDate}"></td>
@@ -94,10 +94,10 @@
                         </tbody>
                     </table>
                     <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-                        <a th:if="${page != nowPage}" th:href="@{/board/freelist(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
+                        <a th:if="${page != nowPage}" th:href="@{board/freelist(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}" th:text="${page}"></a>
                         <strong th:if="${page == nowPage}" th:text="${page}" style="color: red"></strong>
                     </th:block>
-                    <form th:action="@{/board/freelist}" method="get">
+                    <form th:action="@{board/freelist}" method="get">
                         <input style="width: 130px;" type="text" name="searchKeyword">
                         <button type="submit">검색</button>
                     </form>

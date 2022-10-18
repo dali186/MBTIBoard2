@@ -29,7 +29,7 @@
                 <li>
                     <a id="current">게시판1</a>
                     <ul id="list1">
-                        <li><a href="free.html" id="l1">자유게시판</a></li>
+                        <li><a th:href="@{/board/freelist}" id="l1">자유게시판</a></li>
                         <li><a href="#" id="l1">아무게시판</a></li>
                         <li><a href="#" id="l1">이런게시판</a></li>
                     </ul>
@@ -105,10 +105,10 @@
         </div>
     </div>
     <th:block th:if="${#authentication.name} == ${FreeBoard.boardAuthor}">
-    <button type="button" class="btn btn-danger" th:onclick="|location.href='@{/board/freedel/{id}(id=${FreeBoard.boardNo})}'|">delete</button>
+    <button type="button" class="btn btn-danger" th:onclick="|location.href='@{board/freedel/{id}(id=${FreeBoard.boardNo})}'|">delete</button>
     </th:block>
     <th:block th:if="${#authentication.name} == ${FreeBoard.boardAuthor}">
-        <button type="button" class="btn btn-primary" th:onclick="|location.href='@{/board/modify/{id}(id=${FreeBoard.boardNo})}'|">modify</button>
+        <button type="button" class="btn btn-primary" th:onclick="|location.href='@{board/modify/{id}(id=${FreeBoard.boardNo})}'|">modify</button>
     </th:block>
 </div>
 
