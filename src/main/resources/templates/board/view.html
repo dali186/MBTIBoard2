@@ -134,6 +134,11 @@
                         </div>
                     </form>
                     <table class="main">
+                        <tr th:each="comment : ${commentList}">
+                            <td width="20%" th:text="${comment.commentAuthor}"></td>
+                            <td width="60%" th:text="${comment.commentContent}"></td>
+                            <td th:text="${comment.regDate}"></td>
+                        </tr>
                     </table>
                 </div>
             </div>

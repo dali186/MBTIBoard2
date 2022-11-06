@@ -1,7 +1,9 @@
 package com.example.mbtiboard.controller;
 
 import com.example.mbtiboard.dto.CommentDTO;
+import com.example.mbtiboard.entity.Comment;
 import com.example.mbtiboard.entity.FreeBoard;
+import com.example.mbtiboard.repository.CommentRepository;
 import com.example.mbtiboard.service.CommentService;
 import com.example.mbtiboard.service.FreeBoardService;
 import lombok.RequiredArgsConstructor;
@@ -69,6 +71,8 @@ public class BoardController {
     public String freeView(Model model, @PathVariable("boardNo") Long boardNo) {
         model.addAttribute("FreeBoard", freeBoardService.view(boardNo));
         model.addAttribute("commentDTO", new CommentDTO());
+        List<Comment> commentList = commentService.getCommentList(boardNo);
+        model.addAttribute("commentList", commentList);
         return "board/view";
     }
 

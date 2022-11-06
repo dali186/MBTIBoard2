@@ -16,7 +16,6 @@ public class Comment extends BaseTime{
     @Column(name = "comment_no")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long commentNo;
-
     @Column(name = "board_no")
     private Long boardNo;
 
