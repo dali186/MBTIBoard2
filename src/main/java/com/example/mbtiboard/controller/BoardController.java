@@ -1,7 +1,8 @@
 package com.example.mbtiboard.controller;
 
-import com.example.mbtiboard.dto.FreeBoardDTO;
+import com.example.mbtiboard.dto.CommentDTO;
 import com.example.mbtiboard.entity.FreeBoard;
+import com.example.mbtiboard.service.CommentService;
 import com.example.mbtiboard.service.FreeBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -12,17 +13,17 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
 public class BoardController {
 
     private final FreeBoardService freeBoardService;
+    private final CommentService commentService;
 
     @GetMapping("board/freewrite")
     public String freeWrite() {
@@ -67,6 +68,7 @@ public class BoardController {
     @GetMapping("board/freeview/{boardNo}")
     public String freeView(Model model, @PathVariable("boardNo") Long boardNo) {
         model.addAttribute("FreeBoard", freeBoardService.view(boardNo));
+        model.addAttribute("commentDTO", new CommentDTO());
         return "board/view";
     }
 
@@ -93,5 +95,10 @@ public class BoardController {
         freeBoardService.write(freeBoardTemp);
 
         return "redirect:board/freelist";
+    }
+    @PostMapping("comment/save")
+    public String writeComment(CommentDTO commentDTO) {
+        commentService.writeComment(commentDTO);
+        return "redirect:/";
     }
 }

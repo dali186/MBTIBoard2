@@ -26,10 +26,13 @@ body {
     position: relative;
     padding-right:10%;
     padding-left: 10%;
+    border-style: solid;
+    border-width: 1px;
+    border-color: rgb(213, 212, 212)
   }
   #body-content{
-    margin-top: 100px;
-    padding-bottom: 170px;
+    margin-top: 5%;
+    padding-bottom: 5%;
   }
   footer{
     width: 100%;
@@ -44,7 +47,7 @@ body {
     padding: 0px;
     font-family: 'Dongle', sans-serif;
     font-size:20px;
-    width: 1000px;
+    width: 1500px;
   ;
   }
   #dropmenu ul{
@@ -128,19 +131,19 @@ body {
   }
   
   #mypage{
-  text-decoration-line: none;
-  font-size:18px;
-  font-family: 'Noto Sans KR', sans-serif;
-  margin-right:20px;
-  color: rgb(185, 185, 185);
+    text-decoration-line: none;
+    font-size:18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-right:20px;
+    color: rgb(185, 185, 185);
   }
   
   #login{
-  text-decoration-line: none;
-  font-size:18px;
-  font-family: 'Noto Sans KR', sans-serif;
-  margin-right:20px;
-  color: rgb(185, 185, 185);
+    text-decoration-line: none;
+    font-size:18px;
+    font-family: 'Noto Sans KR', sans-serif;
+    margin-right:20px;
+    color: rgb(185, 185, 185);
   }
   
   #logo{
@@ -153,6 +156,24 @@ body {
   height:50px;
   width:100%;
   }
+
+  .subbutton{
+    font-size: 14px;
+    background-color: #45bae9;
+      border-style: none;
+      padding: 10px;
+      margin: auto auto 20px auto;
+      border-radius: 5px;
+      width: 300px;
+      color: white;
+   }
+   .subbutton:hover{
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
+   }
+   .subbtn{
+    margin-top: 30px;
+    text-align: center;
+   }
 
   /*footer*/
   #footer{
@@ -206,3 +227,7 @@ body {
   .icebreak{
   color: rgb(61, 147, 234);;
   }
+
+#inform{
+  padding-right: 5%;
+}

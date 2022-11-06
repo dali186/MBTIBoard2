@@ -1,8 +1,11 @@
 package com.example.mbtiboard.entity;
 
 import lombok.*;
+import lombok.experimental.SuperBuilder;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
@@ -32,4 +35,5 @@ public class FreeBoard extends BaseTime{
         this.boardContent = boardContent;
         this.boardAuthor = boardAuthor;
     }
+
 }
