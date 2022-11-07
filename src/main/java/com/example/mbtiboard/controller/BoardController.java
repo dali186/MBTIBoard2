@@ -40,7 +40,7 @@ public class BoardController {
         freeBoardService.write(freeBoard);
 
         model.addAttribute("message", "게시글이 등록되었습니다.");
-        model.addAttribute("searchUrl", "board/freelist");
+        model.addAttribute("searchUrl", "/board/freelist");
 
         return "board/freewritems";
     }
@@ -71,7 +71,7 @@ public class BoardController {
     public String freeView(Model model, @PathVariable("boardNo") Long boardNo) {
         model.addAttribute("FreeBoard", freeBoardService.view(boardNo));
         model.addAttribute("commentDTO", new CommentDTO());
-        List<Comment> commentList = commentService.getCommentList(boardNo);
+        List<Comment> commentList = commentService.getCommentList(boardNo, 0);
         model.addAttribute("commentList", commentList);
         return "board/view";
     }

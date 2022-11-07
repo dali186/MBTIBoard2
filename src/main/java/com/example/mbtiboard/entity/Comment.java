@@ -19,6 +19,10 @@ public class Comment extends BaseTime{
     @Column(name = "board_no")
     private Long boardNo;
 
+    //Freeboard = 0 , Iboard = 1
+    @Column(name = "board_type")
+    private Long boardType;
+
     @Column(name = "comment_author")
     private String commentAuthor;
 
@@ -26,9 +30,10 @@ public class Comment extends BaseTime{
     private String commentContent;
 
     @Builder
-    public Comment(long commentNo, long boardNo, String commentAuthor, String commentContent) {
+    public Comment(long commentNo, long boardNo, long boardType,String commentAuthor, String commentContent) {
         this.commentNo = commentNo;
         this.boardNo = boardNo;
+        this.boardType = boardType;
         this.commentAuthor = commentAuthor;
         this.commentContent = commentContent;
     }

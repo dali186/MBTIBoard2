@@ -18,6 +18,9 @@ public class CommentDTO {
     @Column(name = "board_no")
     private Long boardNo;
 
+    @Column(name = "board_type")
+    private Long boardType;
+
     @Column(name = "comment_author")
     private String commentAuthor;
 
@@ -25,9 +28,10 @@ public class CommentDTO {
     private String commentContent;
 
     @Builder
-    public CommentDTO(long commentNo, long boardNo, String commentAuthor, String commentContent) {
+    public CommentDTO(long commentNo, long boardNo, long boardType,String commentAuthor, String commentContent) {
         this.commentNo = commentNo;
         this.boardNo = boardNo;
+        this.boardType = boardType;
         this.commentAuthor = commentAuthor;
         this.commentContent = commentContent;
     }
@@ -35,6 +39,7 @@ public class CommentDTO {
     public Comment toEntity() {
         return Comment.builder()
                 .boardNo(boardNo)
+                .boardType(boardType)
                 .commentAuthor(commentAuthor)
                 .commentContent(commentContent)
                 .build();

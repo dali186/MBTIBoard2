@@ -26,9 +26,9 @@ public class CommentService {
         return comment.getCommentNo();
     }
 
-    public List<Comment> getCommentList(long boarNo) {
+    public List<Comment> getCommentList(long boarNo, long boardType) {
         List<Comment> commentList = new ArrayList<>();
-        commentList = commentRepository.findByBoardNo(boarNo);
+        commentList = commentRepository.findByBoardNoAndBoardType(boarNo, boardType);
         return commentList;
     }
 }
