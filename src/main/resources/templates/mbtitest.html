@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>MBTI 검사하기</title>
+</head>
+<body>
+<h1>성격유형검사</h1>
+<form th:action="@{mbtitestresult}">
+
+<script>
+    var quesArr = ["주기적으로 새로운 친구를 만든다."
+                    ,"일정이나 목록으로 계획을 세우는 일을 좋아한다."
+                    ,"매우 감상적인 편이다."
+                    ,"작은 실수로도 자신의 능력이나 지식을 의심하곤 한다."]
+    for (var ques = 0; ques < 4; ques++) {
+        document.write("<h3>Q"+(ques+1)+". ");
+        document.write(quesArr[ques]+"</h3>");
+        document.write('<span>아니다</span>');
+        for (var result = 0; result <= 1; result++) {
+            document.write('<input type="radio" name="q');
+            document.write(ques+'" value="');
+            document.write(result + '">');
+        }
+        document.write('<span>그렇다</span>');
+    }
+</script>
+<br><input type="submit" value="sumbit">
+</form>
+</body>
+</html>

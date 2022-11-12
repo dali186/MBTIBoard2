@@ -80,7 +80,7 @@ public class BoardController {
     public String freeDel(@PathVariable("boardNo") Long boardNo) {
         freeBoardService.deleteById(boardNo);
 
-        return "redirect:board/freelist";
+        return "redirect:/board/freelist";
     }
 
     @GetMapping("board/modify/{boardNo}")
@@ -98,7 +98,7 @@ public class BoardController {
 
         freeBoardService.write(freeBoardTemp);
 
-        return "redirect:board/freelist";
+        return "redirect:/board/freelist";
     }
     @PostMapping("comment/save")
     public String writeComment(CommentDTO commentDTO) {

@@ -6,6 +6,9 @@
 body {
   margin: 0;
   background-color: #d4eaf3;
+  font-family: 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 .login-form {
@@ -47,6 +50,7 @@ body {
 
 .links {
     text-align: center;
+    padding-bottom: 2%;
 }
 
 .links a {
@@ -66,4 +70,16 @@ body {
   margin-right: 20px;
   margin-bottom: 30px;
   font-size: 35px;
+}
+
+#pipe{
+  color: #9B9B9B;
+}
+
+#googlelogo{
+  width: 10%;
+}
+
+#facebooklogo{
+  width: 10%;
 }

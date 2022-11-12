@@ -18,6 +18,9 @@ public class IBoard extends BaseTime{
     @Column(name = "board_title")
     private String boardTitle;
 
+    @Column(name = "board_type")
+    private String boardType;
+
     @Column(name = "board_content", length = 5000)
     private String boardContent;
 
@@ -25,9 +28,10 @@ public class IBoard extends BaseTime{
     private String boardAuthor;
 
     @Builder
-    public IBoard(Long boardNo, String boardTitle, String boardContent, String boardAuthor) {
+    public IBoard(Long boardNo, String boardTitle, String boardType,String boardContent, String boardAuthor) {
         this.boardNo = boardNo;
         this.boardTitle = boardTitle;
+        this.boardType = boardType;
         this.boardContent = boardContent;
         this.boardAuthor = boardAuthor;
     }

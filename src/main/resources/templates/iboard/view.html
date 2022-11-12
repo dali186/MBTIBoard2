@@ -112,12 +112,12 @@
       </table>
       <th:block th:if="${#authentication.name} == ${IBoard.boardAuthor}">
         <button type="button" class="btn btn-danger"
-                th:onclick="|location.href='@{/board/freedel/{id}(id=${IBoard.boardNo})}'|">delete
+                th:onclick="|location.href='@{/board/idel/{id}(id=${IBoard.boardNo})}'|">delete
         </button>
       </th:block>
       <th:block th:if="${#authentication.name} == ${IBoard.boardAuthor}">
         <button type="button" class="btn btn-primary"
-                th:onclick="|location.href='@{/board/modify/{id}(id=${IBoard.boardNo})}'|">modify
+                th:onclick="|location.href='@{/board/imodify/{id}(id=${IBoard.boardNo})}'|">modify
         </button>
       </th:block>
       <div id="body-wrapper">

@@ -79,14 +79,14 @@ public class IBoardController {
     public String freeDel(@PathVariable("boardNo") Long boardNo) {
         iBoardService.deleteById(boardNo);
 
-        return "redirect:board/ilist";
+        return "redirect:/board/ilist";
     }
 
     @GetMapping("board/imodify/{boardNo}")
     public String freeMod(@PathVariable("boardNo") Long boardNo, Model model) {
-        model.addAttribute("Iboard", iBoardService.view(boardNo));
+        model.addAttribute("IBoard", iBoardService.view(boardNo));
 
-        return "iboard/modify";
+        return "iboard/imodify";
     }
 
     @PostMapping("board/iupdate/{boardNo}")
@@ -97,7 +97,7 @@ public class IBoardController {
 
         iBoardService.write(iBoardTemp);
 
-        return "redirect:board/ilist";
+        return "redirect:/board/ilist";
     }
     @PostMapping("icomment/save")
     public String writeComment(CommentDTO commentDTO) {

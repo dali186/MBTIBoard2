@@ -21,11 +21,18 @@
 
   <div class="links">
     <a th:href="@{/joinForm}">회원가입</a>
+    <span id="pipe"> | </span>
     <a href="#">아이디 찾기</a>
+    <span id="pipe"> | </span>
     <a href="#">비밀번호 찾기</a>
   </div>
+  <div class="links">
+    <a href="/oauth2/authorization/google"> <img th:src="@{/img/google.png}" id="googlelogo"> </a>
+    <a href="/oauth2/authorization/facebook"><img th:src="@{/img/facebook.png}" id="facebooklogo"></a>
+    <a> <br />소셜 네트워크 로그인
+    </a>
+  </div>
 </div>
-<a href="/oauth2/authorization/google">구글 로그인</a>
-<a href="/oauth2/authorization/facebook">페이스북 로그인</a>
+
 </body>
 </html>
