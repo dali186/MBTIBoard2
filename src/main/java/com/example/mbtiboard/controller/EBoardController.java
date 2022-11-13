@@ -2,11 +2,9 @@ package com.example.mbtiboard.controller;
 
 import com.example.mbtiboard.dto.CommentDTO;
 import com.example.mbtiboard.entity.Comment;
-import com.example.mbtiboard.entity.FreeBoard;
-import com.example.mbtiboard.entity.IBoard;
+import com.example.mbtiboard.entity.EBoard;
 import com.example.mbtiboard.service.CommentService;
-import com.example.mbtiboard.service.IBoardService;
-import com.nimbusds.oauth2.sdk.http.HTTPRequest;
+import com.example.mbtiboard.service.EBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
@@ -20,41 +18,39 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
 @Controller
 @RequiredArgsConstructor
-public class IBoardController {
-    private final IBoardService iBoardService;
+public class EBoardController {
+    private final EBoardService eBoardService;
     private final CommentService commentService;
-    private final HttpServletRequest request;
 
-    @GetMapping("board/iwrite")
-    public String IWrite() { return "iboard/write";}
+    @GetMapping("board/ewrite")
+    public String EWrite() { return "eboard/write";}
 
-    @PostMapping("board/iwrite/action")
-    public String iBoardWriteAction(Model model, IBoard iBoard) throws IOException {
+    @PostMapping("board/ewrite/action")
+    public String eBoardWriteAction(Model model, EBoard eBoard) throws IOException {
         Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         String userId = ((UserDetails)principal).getUsername();
-        iBoard.setBoardAuthor(userId);
-        iBoardService.write(iBoard);
+        eBoard.setBoardAuthor(userId);
+        eBoardService.write(eBoard);
 
         model.addAttribute("message", "게시글이 등록되었습니다.");
-        model.addAttribute("isearchUrl", "/board/ilist");
+        model.addAttribute("esearchUrl", "/board/elist");
 
-        return "iboard/iwritems";
+        return "eboard/ewritems";
     }
 
-    @GetMapping("board/ilist")
-    public String iList(Model model, @PageableDefault(page = 0, size = 10, sort = "boardNo", direction = Sort.Direction.DESC)Pageable pageable, String searchKeyword) {
-        Page<IBoard> list = null;
+    @GetMapping("board/elist")
+    public String eList(Model model, @PageableDefault(page = 0, size = 10, sort = "boardNo", direction = Sort.Direction.DESC)Pageable pageable, String searchKeyword) {
+        Page<EBoard> list = null;
 
         if(searchKeyword == null) {
-            list = iBoardService.list(pageable);
+            list = eBoardService.list(pageable);
         } else  {
-            list = iBoardService.searchList(searchKeyword,pageable);
+            list = eBoardService.searchList(searchKeyword,pageable);
         }
 
         int nowPage = list.getPageable().getPageNumber() + 1;
@@ -66,46 +62,45 @@ public class IBoardController {
         model.addAttribute("startPage", startPage);
         model.addAttribute("endPage", endPage);
 
-        return "iboard/list";
+        return "eboard/list";
     }
 
-    @GetMapping("board/iview/{boardNo}")
+    @GetMapping("board/eview/{boardNo}")
     public String freeView(Model model, @PathVariable("boardNo") Long boardNo) {
-        model.addAttribute("IBoard", iBoardService.view(boardNo));
+        model.addAttribute("EBoard", eBoardService.view(boardNo));
         model.addAttribute("commentDTO", new CommentDTO());
-        List<Comment> commentList = commentService.getCommentList(boardNo, 1);
+        List<Comment> commentList = commentService.getCommentList(boardNo, 3);
         model.addAttribute("commentList", commentList);
-        return "iboard/view";
+        return "eboard/view";
     }
 
-    @GetMapping("board/idel/{boardNo}")
+    @GetMapping("board/edel/{boardNo}")
     public String freeDel(@PathVariable("boardNo") Long boardNo) {
-        iBoardService.deleteById(boardNo);
+        eBoardService.deleteById(boardNo);
 
-        return "redirect:/board/ilist";
+        return "redirect:board/elist";
     }
 
-    @GetMapping("board/imodify/{boardNo}")
+    @GetMapping("board/emodify/{boardNo}")
     public String freeMod(@PathVariable("boardNo") Long boardNo, Model model) {
-        model.addAttribute("IBoard", iBoardService.view(boardNo));
+        model.addAttribute("Eboard", eBoardService.view(boardNo));
 
-        return "iboard/imodify";
+        return "eboard/modify";
     }
 
-    @PostMapping("board/iupdate/{boardNo}")
-    public String freeUpdate(@PathVariable("boardNo") Long boardNo, IBoard iBoard) throws IOException{
-        IBoard iBoardTemp = iBoardService.view(boardNo);
-        iBoardTemp.setBoardTitle(iBoard.getBoardTitle());
-        iBoardTemp.setBoardContent(iBoard.getBoardContent());
+    @PostMapping("board/eupdate/{boardNo}")
+    public String freeUpdate(@PathVariable("boardNo") Long boardNo, EBoard eBoard) throws IOException{
+        EBoard eBoardTemp = eBoardService.view(boardNo);
+        eBoardTemp.setBoardTitle(eBoard.getBoardTitle());
+        eBoardTemp.setBoardContent(eBoard.getBoardContent());
 
-        iBoardService.write(iBoardTemp);
+        eBoardService.write(eBoardTemp);
 
-        return "redirect:/board/ilist";
+        return "redirect:board/elist";
     }
-    @PostMapping("icomment/save")
+    @PostMapping("ecomment/save")
     public String writeComment(CommentDTO commentDTO) {
         commentService.writeComment(commentDTO);
-        String referer = request.getHeader("referer");
-        return "redirect:" + referer;
+        return "redirect:/";
     }
 }

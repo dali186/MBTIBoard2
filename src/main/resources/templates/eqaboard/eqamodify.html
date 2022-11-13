@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8">
+  <title>얼음땡</title>
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/freewrite.css}">
+</head>
+<body>
+<nav id="header">
+  <div id="right-menu">
+    <li>
+      <span th:if="${#session?.getId()}" sec:authentication="name"></span>
+      <a id="mypage" th:if="${#session?.getId()}" th:href="@{/modForm}">마이페이지</a>
+      <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
+      <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
+    </li>
+  </div>
+  <div>
+    <div id="logo">
+
+      <ul id="dropmenu">
+        <a id="navbar-brand" th:href="@{/}">
+          <img th:src="@{/img/logo.png}" height="50px">
+
+        </a>
+        <li id="current">
+          <a>공지사항</a>
+          <ul id="list1">
+            <li><a th:href="@{/board/noticelist}" id="l1">공지있어요!</a></li>
+            <li><a th:href="@{/board/rulelist}" id="l1">규칙있어요!</a></li>
+          </ul>
+        </li>
+        <li >
+          <a>커뮤니티</a>
+          <ul id="list1">
+            <li><a th:href="@{/board/freelist}" id="l1">할말있어요!</a></li>
+            <li><a href="pop.html" id="l1">인기있어요!</a></li>
+          </ul>
+        </li>
+        <li>
+          <a>I 모여라!</a>
+          <ul id="list1">
+            <li><a th:href="@{/board/ilist}" id="l1">I 할말있어요!</a></li>
+            <li><a th:href="@{/board/iqalist}" id="l1">I 질문있어요!</a></li>
+          </ul>
+        </li>
+        <li>
+          <a>E 모여라!</a>
+          <ul id="list1">
+            <li><a th:href="@{/board/elist}" id="l1">E 할말있어요!</a></li>
+            <li><a th:href="@{/board/eqalist}" id="l1">E 질문있어요!</a></li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+
+  </div>
+</nav><
+<div id="searchblank">
+  <form id="searchmenu" class="d-flex" role="search">
+    <input id="searchbar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+    <button id="searchbutton" class="btn btn-outline-success" type="submit">
+      <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
+    </button>
+  </form>
+</div>
+
+<hr />
+<div id="body-wrapper">
+  <div id="body-content">
+    <h2 class="write">수정하기</h2>
+    <div class="blank"></div>
+    <form th:action="@{/board/eqaupdate/{id}(id = ${EQABoard.boardNo})}" th:object="${EQABoard}" method="post">
+      <table class="main">
+        <tr>
+          <td><label th:for="board_title">제목</label></td>
+          <td><input type="text" th:field="*{boardTitle}" placeholder="제목을 입력하세요"></td>
+        </tr>
+        <tr>
+          <td><label th:for="board_content">내용</label></td>
+          <td><textarea class="form-control" rows="30" th:field="*{boardContent}" placeholder="내용을 입력하세요"></textarea></td>
+        </tr>
+      </table>
+      <div class="subbtn"><button type="submit" class="subbutton">수정하기</button></div>
+    </form>
+  </div>
+</div>
+<footer>
+  <div id="footer">
+    <div class="footer-inner">
+      <div class="footer-top">
+        <div class="footer-inner">
+          <div class="menu">
+            <a href="#">공지사항</a>|
+            <a href="#">이용약관</a>|
+            <a href="#">개인정보처리방침</a>
+          </div>
+          <div class="sns">
+            <a href="#">
+              <img th:src="@{/img/logo.png}" width="100px" height="40px">
+            </a>
+          </div>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="info">
+          명칭 :
+          <b>얼음땡</b>
+          <b class="span">|</b>
+          소속 :
+          <b>동양미래대학교 컴퓨터정보공학과</b>
+          <b class="span">|</b>
+          제작그룹 :
+          <b>7팀</b>
+          <span>
+                <br />
+                얼음땡의 콘텐츠는 저작권법의 보호를 받으므로, 무단 전재, 복사, 배포 등을 금합니다.
+                <br />
+                Copyrightⓒ <span class="icebreak">얼음땡</span>. All rights reserved.
+              </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+</body>
+
+</html>

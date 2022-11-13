@@ -67,14 +67,8 @@ public class IndexController {
         accountService.updateAccount(accountDTO);
         return "index";
     }
-
     @GetMapping("mbtitest")
-    public String mbtiTest(){
+    public String mbtiTest() {
         return "mbtitest";
-    }
-    @GetMapping("mbtitestresult")
-    public String mbtiTestResult(){
-
-        return "mbtitestresult";
     }
 }

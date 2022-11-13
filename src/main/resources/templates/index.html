@@ -31,8 +31,8 @@
                 <li id="current">
                     <a>공지사항</a>
                     <ul id="list1">
-                        <li><a href="notice.html" id="l1">공지있어요!</a></li>
-                        <li><a href="rulePage.html" id="l1">규칙있어요!</a></li>
+                        <li><a th:href="@{/board/noticelist}" id="l1">공지있어요!</a></li>
+                        <li><a th:href="@{/board/rulelist}" id="l1">규칙있어요!</a></li>
                     </ul>
                 </li>
                 <li >
@@ -46,14 +46,14 @@
                     <a>I 모여라!</a>
                     <ul id="list1">
                         <li><a th:href="@{/board/ilist}" id="l1">I 할말있어요!</a></li>
-                        <li><a href="Iqa.html" id="l1">I 질문있어요!</a></li>
+                        <li><a th:href="@{/board/iqalist}" id="l1">I 질문있어요!</a></li>
                     </ul>
                 </li>
                 <li>
                     <a>E 모여라!</a>
                     <ul id="list1">
-                        <li><a href="Efree.html" id="l1">E 할말있어요!</a></li>
-                        <li><a href="Eqa.html" id="l1">E 질문있어요!</a></li>
+                        <li><a th:href="@{/board/elist}" id="l1">E 할말있어요!</a></li>
+                        <li><a th:href="@{/board/eqalist}" id="l1">E 질문있어요!</a></li>
                     </ul>
                 </li>
             </ul>
@@ -82,7 +82,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item item1 active">
                     <div class="helper"></div><div class="intro">
-                    <a href="https://www.16personalities.com/ko/%EB%AC%B4%EB%A3%8C-%EC%84%B1%EA%B2%A9-%EC%9C%A0%ED%98%95-%EA%B2%80%EC%82%AC" target="_blank">링크 바로가기</a>
+                    <a th:href="@{mbtitest}" target="_blank">MBTI 테스트하기</a>
                 </div>
                 </div>
                 <div class="carousel-item item2">

@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>message</title>
+</head>
+
+<script th:inline="javascript">
+
+  var message = [[${message}]];
+  var url = [[${iqasearchUrl}]];
+  alert(message);
+
+  location.replace(url);
+
+</script>
+
+<body>
+
+</body>
+</html>

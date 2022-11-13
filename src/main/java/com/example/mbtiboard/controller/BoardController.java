@@ -17,6 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,6 +27,7 @@ public class BoardController {
 
     private final FreeBoardService freeBoardService;
     private final CommentService commentService;
+    private final HttpServletRequest request;
 
     @GetMapping("board/freewrite")
     public String freeWrite() {
@@ -103,6 +105,7 @@ public class BoardController {
     @PostMapping("comment/save")
     public String writeComment(CommentDTO commentDTO) {
         commentService.writeComment(commentDTO);
-        return "redirect:/";
+        String referer = request.getHeader("referer");
+        return "redirect:" + referer;
     }
 }
