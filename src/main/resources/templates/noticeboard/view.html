@@ -118,7 +118,7 @@
       </th:block>
       <th:block th:if="${#authentication.name} == ${NoticeBoard.boardAuthor}">
         <button type="button" class="btn btn-primary"
-                th:onclick="|location.href='@{/board/modify/{id}(id=${NoticeBoard.boardNo})}'|">modify
+                th:onclick="|location.href='@{/board/noticemodify/{id}(id=${NoticeBoard.boardNo})}'|">modify
         </button>
       </th:block>
       <div id="body-wrapper">

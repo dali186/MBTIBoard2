@@ -85,7 +85,7 @@ public class NoticeBoardController {
     public String freeMod(@PathVariable("boardNo") Long boardNo, Model model) {
         model.addAttribute("Noticeboard", noticeBoardService.view(boardNo));
 
-        return "noticeboard/modify";
+        return "noticeboard/noticemodify";
     }
 
     @PostMapping("board/noticeupdate/{boardNo}")
@@ -96,7 +96,7 @@ public class NoticeBoardController {
 
         noticeBoardService.write(noticeBoardTemp);
 
-        return "redirect:board/noticelist";
+        return "redirect:/board/noticelist";
     }
     @PostMapping("noticecomment/save")
     public String writeComment(CommentDTO commentDTO) {

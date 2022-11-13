@@ -72,7 +72,7 @@
   <div id="body-content">
     <h2 class="write">수정하기</h2>
     <div class="blank"></div>
-    <form th:action="@{/board/noticeupdate/{id}(id = ${NoticeBoard.boardNo})}" th:object="${NoticeBoard}" method="post">
+    <form th:action="@{/board/noticeupdate/{id}(id = ${Noticeboard.boardNo})}" th:object="${Noticeboard}" method="post">
       <table class="main">
         <tr>
           <td><label th:for="board_title">제목</label></td>

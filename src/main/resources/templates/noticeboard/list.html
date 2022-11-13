@@ -112,7 +112,7 @@
             <input style="width: 130px;" type="text" name="searchKeyword">
             <button type="submit">검색</button>
           </form>
-          <th:block th:if="${#authentication.name} == 'admin@admin'">
+          <th:block th:if="${#authentication.isAuthenticated()}">
             <button type="button" class="btn btn-primary"
                     onclick="javascript:location.href='/board/noticewrite'">글쓰기
             </button>

@@ -110,21 +110,13 @@
             <section class="hot">
                 <article class="left-list">
                     <div id="hot-post">
-                        <h3 class="title"><a href="pop.html">화제 게시물</a></h3>
+                        <h3 class="title"><a th:href="@{/board/noticelist}">공지 사항</a></h3>
                     </div>
                     <div id="hot-list">
                         <ul>
-                            <li class="hlist">
-                                <a href="#">
-                                    <div>
-                                        글 제목
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="hlist">
-                                <a href="#">
-                                    <div>
-                                        글 제목
+                            <li class="hlist" th:each="noticeList : ${noticeList}">
+                                <a th:href="|/board/noticeview/${noticeList.getBoardNo()}|">
+                                    <div th:text="${noticeList.getBoardTitle()}">
                                     </div>
                                 </a>
                             </li>
