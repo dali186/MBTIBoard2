@@ -82,7 +82,7 @@
             <div class="carousel-inner">
                 <div class="carousel-item item1 active">
                     <div class="helper"></div><div class="intro">
-                    <a th:href="@{mbtitest}" target="_blank">MBTI 테스트하기</a>
+                    <a th:href="@{mbtitest}" >MBTI 테스트하기</a>
                 </div>
                 </div>
                 <div class="carousel-item item2">
@@ -114,7 +114,7 @@
                     </div>
                     <div id="hot-list">
                         <ul>
-                            <li class="hlist" th:each="noticeList : ${noticeList}">
+                            <li class="hlist" th:each="noticeList, index : ${noticeList}" th:if="${index.index}<5">
                                 <a th:href="|/board/noticeview/${noticeList.getBoardNo()}|">
                                     <div th:text="${noticeList.getBoardTitle()}">
                                     </div>
@@ -125,22 +125,13 @@
                 </article>
                 <article class="right-list">
                     <div id="qa-post">
-                        <h3 class="title"><a href="#">답변을 기다리는 게시물</a></h3>
+                        <h3 class="title"><a th:href="@{/board/rulelist}">이용 규칙</a></h3>
                     </div>
                     <div id="qa-list">
                         <ul>
-                            <li class="qlist">
-                                <a href="#">
-                                    <div>
-                                        글 제목
-                                    </div>
-                                </a>
-                            </li>
-                            <li class="qlist">
-                                <a href="#">
-                                    <div>
-                                        글 제목
-                                    </div>
+                            <li class="qlist" th:each="ruleList, index : ${ruleList}" th:if="${index.index}<5">
+                                <a th:href="|/board/ruleview/${ruleList.getBoardNo()}|">
+                                    <div th:text="${ruleList.getBoardTitle()}"></div>
                                 </a>
                             </li>
                         </ul>

@@ -1,0 +1,63 @@
+* {
+    box-sizing: border-box;
+    font-family: 'Noto Sans KR', sans-serif;
+  }
+
+body{
+    margin: 0;
+    background-color: #d4eaf3;
+    font-family: 'Noto Sans KR', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  }
+
+.login-form {
+    padding: 20px;
+    background-color: #EEEFF1;
+    width: 500px;
+    display: block;
+    margin: 150px auto auto auto;
+    border-radius: 5px;
+    padding-bottom: 50px;
+    padding-top: 50px;
+    }
+
+.gender{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    padding-right: 10px;
+}
+
+.genderbutton{
+    background-color: white;
+    border-radius: 5px;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.text-field {
+    font-size: 14px;
+    border-style: none;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    width: 460px;
+    color: #9B9B9B;
+    }
+
+.submit-btn {
+    font-size: 14px;
+    background-color: #45bae9;
+    border-style: none;
+    padding: 10px;
+    margin: auto auto 20px auto;
+    border-radius: 5px;
+    width: 460px;
+    color: white;
+    }
+
+#navbar-brand{
+    padding: 100px;
+    }

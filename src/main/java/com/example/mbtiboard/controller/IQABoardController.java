@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,6 +27,7 @@ import java.util.List;
 public class IQABoardController {
     private final IQABoardService iqaBoardService;
     private final CommentService commentService;
+    private final HttpServletRequest request;
 
     @GetMapping("board/iqawrite")
     public String IQAWrite() { return "iqaboard/write";}
@@ -101,6 +103,7 @@ public class IQABoardController {
     @PostMapping("iqacomment/save")
     public String writeComment(CommentDTO commentDTO) {
         commentService.writeComment(commentDTO);
-        return "redirect:/";
+        String referer = request.getHeader("referer");
+        return "redirect:" + referer;
     }
 }

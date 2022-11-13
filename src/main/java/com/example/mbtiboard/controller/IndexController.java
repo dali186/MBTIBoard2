@@ -4,9 +4,11 @@ import com.example.mbtiboard.config.auth.PrincipalDetails;
 import com.example.mbtiboard.dto.AccountDTO;
 import com.example.mbtiboard.entity.Account;
 import com.example.mbtiboard.entity.NoticeBoard;
+import com.example.mbtiboard.entity.RuleBoard;
 import com.example.mbtiboard.repository.AccountRepository;
 import com.example.mbtiboard.service.AccountService;
 import com.example.mbtiboard.service.NoticeBoardService;
+import com.example.mbtiboard.service.RuleBoardService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.security.access.annotation.Secured;
 import org.springframework.security.core.annotation.AuthenticationPrincipal;
@@ -30,11 +32,14 @@ public class IndexController {
     private final AccountService accountService;
     private final AccountRepository accountRepository;
     private final NoticeBoardService noticeBoardService;
+    private final RuleBoardService ruleBoardService;
 
     @GetMapping({"","/"})
     public String index(Model model) {
         List<NoticeBoard> noticeList = noticeBoardService.indexList();
+        List<RuleBoard> ruleList = ruleBoardService.ruleList();
         model.addAttribute("noticeList", noticeList);
+        model.addAttribute("ruleList", ruleList);
         return "index";
     }
     @GetMapping("loginForm")

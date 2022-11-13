@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -34,4 +35,8 @@ public class RuleBoardService {
     }
     @Transactional
     public void deleteById(Long boardNo) {ruleBoardRepository.deleteById(boardNo);}
+
+    public List<RuleBoard> ruleList() {
+        return ruleBoardRepository.findAll();
+    }
 }

@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,6 +27,7 @@ import java.util.List;
 public class EQABoardController {
     private final EQABoardService eqaBoardService;
     private final CommentService commentService;
+    private final HttpServletRequest request;
 
     @GetMapping("board/eqawrite")
     public String EQAWrite() { return "eqaboard/write";}
@@ -101,6 +103,7 @@ public class EQABoardController {
     @PostMapping("eqacomment/save")
     public String writeComment(CommentDTO commentDTO) {
         commentService.writeComment(commentDTO);
-        return "redirect:/";
+        String referer = request.getHeader("referer");
+        return "redirect:" + referer;
     }
 }

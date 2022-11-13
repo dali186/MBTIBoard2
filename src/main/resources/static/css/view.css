@@ -5,9 +5,6 @@ body {
     -moz-osx-font-smoothing: grayscale;
    height: 100%;
   }
-  footer{
-    padding-top: 23%;
-  }
   
   #title a{
     text-decoration-line: none;
@@ -26,13 +23,10 @@ body {
     position: relative;
     padding-right:10%;
     padding-left: 10%;
-    border-style: solid;
-    border-width: 1px;
-    border-color: rgb(213, 212, 212)
   }
   #body-content{
-    margin-top: 5%;
-    padding-bottom: 5%;
+    margin-top: 100px;
+    padding-bottom: 170px;
   }
   footer{
     width: 100%;
@@ -106,7 +100,7 @@ body {
   
   
   #list1{
-    background-color: #FFFFFF;
+    background-color: #ffffff00;
   }
   
   #navbar-brand{
@@ -131,19 +125,19 @@ body {
   }
   
   #mypage{
-    text-decoration-line: none;
-    font-size:18px;
-    font-family: 'Noto Sans KR', sans-serif;
-    margin-right:20px;
-    color: rgb(185, 185, 185);
+  text-decoration-line: none;
+  font-size:18px;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-right:20px;
+  color: rgb(185, 185, 185);
   }
   
   #login{
-    text-decoration-line: none;
-    font-size:18px;
-    font-family: 'Noto Sans KR', sans-serif;
-    margin-right:20px;
-    color: rgb(185, 185, 185);
+  text-decoration-line: none;
+  font-size:18px;
+  font-family: 'Noto Sans KR', sans-serif;
+  margin-right:20px;
+  color: rgb(185, 185, 185);
   }
   
   #logo{
@@ -157,23 +151,38 @@ body {
   width:100%;
   }
 
-  .subbutton{
-    font-size: 14px;
-    background-color: #45bae9;
-      border-style: none;
-      padding: 10px;
-      margin: auto auto 20px auto;
-      border-radius: 5px;
-      width: 300px;
-      color: white;
-   }
-   .subbutton:hover{
-    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.50);
-   }
-   .subbtn{
-    margin-top: 30px;
-    text-align: center;
-   }
+  #container{
+    padding-top: 2%;
+    padding-left: 20%;
+    padding-right: 20%;
+    padding-bottom: 2%;
+  }
+
+  section{
+    padding: 30px;
+    border-style: solid;
+    border-color: rgb(213, 212, 212);
+    border-radius: 5px;
+    border-width: 2px;
+  }
+
+  #title{
+    padding-bottom: 2%;
+  }
+
+  #subtitle{
+    padding-bottom: 2%;
+    opacity: 0.8;
+  }
+
+  #inform{
+    padding-bottom: 2%;
+    opacity: 0.5;
+  }
+
+  #block{
+    padding-bottom: 1px;
+  }
 
   /*footer*/
   #footer{
@@ -227,7 +236,3 @@ body {
   .icebreak{
   color: rgb(61, 147, 234);;
   }
-
-#inform{
-  padding-right: 5%;
-}

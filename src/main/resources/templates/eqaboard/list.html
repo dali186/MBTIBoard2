@@ -7,7 +7,7 @@
   <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
         integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" th:href="@{/css/free.css}">
+  <link rel="stylesheet" th:href="@{/css/list.css}">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -65,14 +65,6 @@
 
   </div>
 </nav>
-<div id="searchblank">
-  <form id="searchmenu" class="d-flex" role="search">
-    <input id="searchbar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button id="searchbutton" class="btn btn-outline-success" type="submit">
-      <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
-    </button>
-  </form>
-</div>
 
 <hr/>
 <div id="body-wrapper">
@@ -108,10 +100,14 @@
                th:text="${page}"></a>
             <strong th:if="${page == nowPage}" th:text="${page}" style="color: red"></strong>
           </th:block>
-          <form th:action="@{/board/eqalist}" method="get">
-            <input style="width: 130px;" type="text" name="searchKeyword">
-            <button type="submit">검색</button>
-          </form>
+          <div id="searchblank">
+            <form id="searchmenu" class="d-flex" role="search" th:action="@{/board/eqalist}" method="get">
+              <input id="searchbar" class="form-control me-2" style="width: 200px;" type="text" name="searchKeyword" placeholder="검색어를 입력하세요." aria-label="Search">
+              <button id="searchbutton" class="btn btn-outline-success" type="submit">
+                <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
+              </button>
+            </form>
+          </div>
           <th:block th:if="${#session?.getId()}">
             <button type="button" class="btn btn-primary"
                     onclick="javascript:location.href='/board/eqawrite'">글쓰기

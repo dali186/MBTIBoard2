@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.IOException;
 import java.util.List;
 
@@ -26,7 +27,7 @@ import java.util.List;
 public class NoticeBoardController {
     private final NoticeBoardService noticeBoardService;
     private final CommentService commentService;
-
+    private final HttpServletRequest request;
     @GetMapping("board/noticewrite")
     public String NoticeWrite() { return "noticeboard/write";}
 
@@ -101,6 +102,7 @@ public class NoticeBoardController {
     @PostMapping("noticecomment/save")
     public String writeComment(CommentDTO commentDTO) {
         commentService.writeComment(commentDTO);
-        return "redirect:/";
+        String referer = request.getHeader("referer");
+        return "redirect:" + referer;
     }
 }

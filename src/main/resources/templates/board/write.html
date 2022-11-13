@@ -5,7 +5,7 @@
     <title>얼음땡</title>
     <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-    <link rel="stylesheet" th:href="@{/css/freewrite.css}">
+    <link rel="stylesheet" th:href="@{/css/write.css}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
@@ -15,7 +15,7 @@
     <div id="right-menu">
         <li>
             <span th:if="${#session?.getId()}" sec:authentication="name"></span>
-            <a id="mypage" th:if="${#session?.getId()}" th:href="@{modForm}">마이페이지</a>
+            <a id="mypage" th:if="${#session?.getId()}" th:href="@{/modForm}">마이페이지</a>
             <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
             <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
         </li>
@@ -31,33 +31,34 @@
                 <li id="current">
                     <a>공지사항</a>
                     <ul id="list1">
-                        <li><a href="notice.html" id="l1">공지있어요!</a></li>
-                        <li><a href="rulePage.html" id="l1">규칙있어요!</a></li>
+                        <li><a th:href="@{/board/noticelist}" id="l1">공지있어요!</a></li>
+                        <li><a th:href="@{/board/rulelist}" id="l1">규칙있어요!</a></li>
                     </ul>
                 </li>
                 <li >
                     <a>커뮤니티</a>
                     <ul id="list1">
-                        <li><a href="free.html" id="l1">할말있어요!</a></li>
+                        <li><a th:href="@{/board/freelist}" id="l1">할말있어요!</a></li>
                         <li><a href="pop.html" id="l1">인기있어요!</a></li>
                     </ul>
                 </li>
                 <li>
                     <a>I 모여라!</a>
                     <ul id="list1">
-                        <li><a href="Ifree.html" id="l1">I 할말있어요!</a></li>
-                        <li><a href="Iqa.html" id="l1">I 질문있어요!</a></li>
+                        <li><a th:href="@{/board/ilist}" id="l1">I 할말있어요!</a></li>
+                        <li><a th:href="@{/board/iqalist}" id="l1">I 질문있어요!</a></li>
                     </ul>
                 </li>
                 <li>
                     <a>E 모여라!</a>
                     <ul id="list1">
-                        <li><a href="Efree.html" id="l1">E 할말있어요!</a></li>
-                        <li><a href="Eqa.html" id="l1">E 질문있어요!</a></li>
+                        <li><a th:href="@{/board/elist}" id="l1">E 할말있어요!</a></li>
+                        <li><a th:href="@{/board/eqalist}" id="l1">E 질문있어요!</a></li>
                     </ul>
                 </li>
             </ul>
         </div>
+
     </div>
 </nav>
 <div id="searchblank">

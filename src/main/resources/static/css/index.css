@@ -158,17 +158,13 @@ width:100%;
  
 }
 .carousel-item.item1 {
-  background-image: url("img/mbtilogo.png");
+  background-image: url("/static/img/mbtilogo.png");
   background-position: left center;
 
 }
-.carousel-item.item2 {
- background-image: url("img/secondtest.png");
-  background-position: center top;
-}
 
-.carousel-item.item3 {
- background-image: url("img/third.png");
+.carousel-item.item2 {
+ background-image: url("/static/img/third.png");
   background-position: center center;
 }
 .helper{
