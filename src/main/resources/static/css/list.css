@@ -33,6 +33,7 @@ footer{
   height: 170px;
   bottom: 0;
   left: 0;
+  padding-top: 11%
 }
 #dropmenu{
   border: none;
@@ -56,8 +57,19 @@ footer{
   padding: 13px 100px;
 
 }
+
+#effect{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
 #dropmenu li a:hover, .dropmenu ul li:hover a{
   text-decoration: none;
+  border-radius: 15px;
+  background:#4162c4;
+  color:white;
 }
 
 #dropmenu li ul{

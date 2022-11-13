@@ -24,6 +24,8 @@ code {
 #body-wrapper{
   min-height: 100%;
   position: relative;
+  padding-right:10%;
+  padding-left: 10%;
 }
 #body-content{
   margin-top: 100px;
@@ -57,8 +59,19 @@ footer{
   padding: 13px 100px;
 
 }
+
+#effect{
+  padding-top: 1px;
+  padding-bottom: 1px;
+  padding-right: 6px;
+  padding-left: 6px;
+}
+
 #dropmenu li a:hover, .dropmenu ul li:hover a{
   text-decoration: none;
+  border-radius: 15px;
+  background:#4162c4;
+  color:white;
 }
 
 #dropmenu li ul{
@@ -101,7 +114,7 @@ footer{
 
 
 #list1{
-  background-color: #FFFFFF;
+  background-color: #ffffff00;
 }
 
 #navbar-brand{
@@ -158,13 +171,17 @@ width:100%;
  
 }
 .carousel-item.item1 {
-  background-image: url("/static/img/mbtilogo.png");
+  background-image: url("img/mbtilogo.png");
   background-position: left center;
 
 }
 
 .carousel-item.item2 {
- background-image: url("/static/img/third.png");
+  background-image: url("img/secondtest.png");
+  background-position: center top;
+}
+.carousel-item.item3 {
+  background-image: url("img/third.png");
   background-position: center center;
 }
 .helper{
