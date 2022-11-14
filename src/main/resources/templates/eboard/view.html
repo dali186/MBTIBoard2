@@ -104,7 +104,7 @@
       </table>
       <th:block th:if="${#authentication.name} == ${EBoard.boardAuthor}">
         <button type="button" class="btn btn-danger"
-                th:onclick="|location.href='@{/board/freedel/{id}(id=${EBoard.boardNo})}'|">글 삭제
+                th:onclick="|location.href='@{/board/edel/{id}(id=${EBoard.boardNo})}'|">글 삭제
         </button>
       </th:block>
       <th:block th:if="${#authentication.name} == ${EBoard.boardAuthor}">

@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.w3.org/1999/xhtml" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <title>에러 페이지</title>
+    <meta charset="UTF-8">
+  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css" integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+  <link rel="stylesheet" th:href="@{/css/error.css}">
+</head>
+<body>
+    <nav id="header">
+        <div id="right-menu">
+            <li>
+                <span th:if="${#session?.getId()}" sec:authentication="name"></span>
+                <a id="mypage" th:if="${#session?.getId()}" th:href="@{/modForm}">마이페이지</a>
+                <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
+                <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
+            </li>
+        </div>
+        <div>
+            <div id="logo">
+    
+                <ul id="dropmenu">
+                    <a id="navbar-brand" th:href="@{/}">
+                        <img th:src="@{/img/logo.png}" height="50px">
+    
+                    </a>
+                    <li id="current">
+                        <a id="effect">공지사항</a>
+                        <ul id="list1">
+                            <li><a th:href="@{/board/noticelist}" id="effect">공지있어요!</a></li>
+                            <li><a th:href="@{/board/rulelist}" id="effect">규칙있어요!</a></li>
+                        </ul>
+                    </li>
+                    <li >
+                        <a id="effect">커뮤니티</a>
+                        <ul id="list1">
+                            <li><a th:href="@{/board/freelist}" id="effect">할말있어요!</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a id="effect">I 모여라!</a>
+                        <ul id="list1">
+                            <li><a th:href="@{/board/ilist}" id="effect">I 할말있어요!</a></li>
+                            <li><a th:href="@{/board/iqalist}" id="effect">I 질문있어요!</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a id="effect">E 모여라!</a>
+                        <ul id="list1">
+                            <li><a th:href="@{/board/elist}" id="effect">E 할말있어요!</a></li>
+                            <li><a th:href="@{/board/eqalist}" id="effect">E 질문있어요!</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+    
+        </div>
+    </nav>
+    
+    <hr />
+    <div id="body-wrapper">
+        <div id="body-content">
+            <h1>관리자만 접근 가능합니다.</h1>
+        </div>
+    </div>
+
+<footer>
+    <div id="footer">
+        <div class="footer-inner">
+            <div class="footer-top">
+                <div class="footer-inner">
+                    <div class="menu">
+                        <a th:href="@{/board/noticelist}">공지사항</a>|
+                        <a th:href="@{/board/rulelist}">이용규칙</a>|
+                        <a href="http://www.dmu.ac.kr/dongyang/index.do">동양미래대학교</a>
+                    </div>
+                    <div class="sns">
+                        <a href="#">
+                            <img th:src="@{/img/logo.png}" width="100px" height="40px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="info">
+                    명칭 :
+                    <b>얼음땡</b>
+                    <b class="span">|</b>
+                    소속 :
+                    <b>동양미래대학교 컴퓨터정보공학과</b>
+                    <b class="span">|</b>
+                    제작그룹 :
+                    <b>7팀</b>
+                    <span>
+                <br />
+                얼음땡의 콘텐츠는 저작권법의 보호를 받으므로, 무단 전재, 복사, 배포 등을 금합니다.
+                <br />
+                Copyrightⓒ <span class="icebreak">얼음땡</span>. All rights reserved.
+              </span>
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>

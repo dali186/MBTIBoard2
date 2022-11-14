@@ -82,4 +82,5 @@ public class IndexController {
     public String mbtiTest() {
         return "mbtitest";
     }
+
 }
