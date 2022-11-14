@@ -15,7 +15,7 @@
     <div id="right-menu">
         <li>
             <span th:if="${#session?.getId()}" sec:authentication="name"></span>
-            <a id="mypage" th:if="${#session?.getId()}" th:href="@{modForm}">마이페이지</a>
+            <a id="mypage" th:if="${#session?.getId()}" th:href="@{/modForm}">마이페이지</a>
             <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
             <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
         </li>
