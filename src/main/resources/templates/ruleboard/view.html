@@ -42,7 +42,6 @@
           <a id="effect">커뮤니티</a>
           <ul id="list1">
             <li><a th:href="@{/board/freelist}" id="effect">할말있어요!</a></li>
-            <li><a href="pop.html" id="effect">인기있어요!</a></li>
           </ul>
         </li>
         <li>
@@ -64,14 +63,6 @@
 
   </div>
 </nav>
-<div id="searchblank">
-  <form id="searchmenu" class="d-flex" role="search">
-    <input id="searchbar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button id="searchbutton" class="btn btn-outline-success" type="submit">
-      <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
-    </button>
-  </form>
-</div>
 <hr/>
 <!-- body -->
 <div id="wrapper">
@@ -113,12 +104,12 @@
       </table>
       <th:block th:if="${#authentication.name} == ${RuleBoard.boardAuthor}">
         <button type="button" class="btn btn-danger"
-                th:onclick="|location.href='@{/board/freedel/{id}(id=${RuleBoard.boardNo})}'|">delete
+                th:onclick="|location.href='@{/board/freedel/{id}(id=${RuleBoard.boardNo})}'|">글 삭제
         </button>
       </th:block>
       <th:block th:if="${#authentication.name} == ${RuleBoard.boardAuthor}">
         <button type="button" class="btn btn-primary"
-                th:onclick="|location.href='@{/board/modify/{id}(id=${RuleBoard.boardNo})}'|">modify
+                th:onclick="|location.href='@{/board/modify/{id}(id=${RuleBoard.boardNo})}'|">글 수정
         </button>
       </th:block>
     </div>

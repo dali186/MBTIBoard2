@@ -63,19 +63,11 @@
 
   </div>
 </nav>
-<div id="searchblank">
-  <form id="searchmenu" class="d-flex" role="search">
-    <input id="searchbar" class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-    <button id="searchbutton" class="btn btn-outline-success" type="submit">
-      <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
-    </button>
-  </form>
-</div>
 <hr/>
 <!-- body -->
 <div id="wrapper">
   <div class="container">
-    <h3>할말있어요!</h3>
+    <h3>E 할말있어요!</h3>
     <div class="col-md-12">
       <table class="table table-striped table-horizontal table-bordered mt-3">
         <thead class="thead-strong">
@@ -112,12 +104,12 @@
       </table>
       <th:block th:if="${#authentication.name} == ${EBoard.boardAuthor}">
         <button type="button" class="btn btn-danger"
-                th:onclick="|location.href='@{/board/freedel/{id}(id=${EBoard.boardNo})}'|">delete
+                th:onclick="|location.href='@{/board/freedel/{id}(id=${EBoard.boardNo})}'|">글 삭제
         </button>
       </th:block>
       <th:block th:if="${#authentication.name} == ${EBoard.boardAuthor}">
         <button type="button" class="btn btn-primary"
-                th:onclick="|location.href='@{/board/modify/{id}(id=${EBoard.boardNo})}'|">modify
+                th:onclick="|location.href='@{/board/modify/{id}(id=${EBoard.boardNo})}'|">글 수정
         </button>
       </th:block>
       <div id="body-wrapper">

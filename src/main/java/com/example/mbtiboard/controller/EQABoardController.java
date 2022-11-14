@@ -87,7 +87,7 @@ public class EQABoardController {
     public String freeMod(@PathVariable("boardNo") Long boardNo, Model model) {
         model.addAttribute("EQAboard", eqaBoardService.view(boardNo));
 
-        return "eqaboard/modify";
+        return "eqaboard/eqamodify";
     }
 
     @PostMapping("board/eqaupdate/{boardNo}")

@@ -77,7 +77,7 @@ public class RuleBoardController {
     public String freeMod(@PathVariable("boardNo") Long boardNo, Model model) {
         model.addAttribute("Ruleboard", ruleBoardService.view(boardNo));
 
-        return "ruleboard/modify";
+        return "ruleboard/rulemodify";
     }
 
     @PostMapping("board/ruleupdate/{boardNo}")
