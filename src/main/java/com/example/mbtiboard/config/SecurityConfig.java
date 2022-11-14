@@ -28,9 +28,9 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http.csrf().disable();
         http.authorizeRequests()
+                .antMatchers("/board/noticewrite").access("haseRole('ROLE_ADMIN')")
+                .antMatchers("/board/rulewrite").access("haseRole('ROLE_ADMIN')")
                 .antMatchers("/board/**").access("hasRole('ROLE_USER')")
-                .antMatchers("/manager/**").access("hasRole('ROLE_ADMIN') or hasRole('ROLE_MANAGER')")
-                .antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
                 .anyRequest().permitAll()
                 .and()//로그인 페이지로 이동
                 .formLogin()

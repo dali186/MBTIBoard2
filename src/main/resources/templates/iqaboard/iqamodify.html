@@ -26,28 +26,27 @@
 
         </a>
         <li id="current">
-          <a>공지사항</a>
+          <a id="effect">공지사항</a>
           <ul id="list1">
             <li><a th:href="@{/board/noticelist}" id="effect">공지있어요!</a></li>
             <li><a th:href="@{/board/rulelist}" id="effect">규칙있어요!</a></li>
           </ul>
         </li>
         <li >
-          <a>커뮤니티</a>
+          <a id="effect">커뮤니티</a>
           <ul id="list1">
             <li><a th:href="@{/board/freelist}" id="effect">할말있어요!</a></li>
-            <li><a href="pop.html" id="effect">인기있어요!</a></li>
           </ul>
         </li>
         <li>
-          <a>I 모여라!</a>
+          <a id="effect">I 모여라!</a>
           <ul id="list1">
             <li><a th:href="@{/board/ilist}" id="effect">I 할말있어요!</a></li>
             <li><a th:href="@{/board/iqalist}" id="effect">I 질문있어요!</a></li>
           </ul>
         </li>
         <li>
-          <a>E 모여라!</a>
+          <a id="effect">E 모여라!</a>
           <ul id="list1">
             <li><a th:href="@{/board/elist}" id="effect">E 할말있어요!</a></li>
             <li><a th:href="@{/board/eqalist}" id="effect">E 질문있어요!</a></li>
@@ -93,9 +92,9 @@
       <div class="footer-top">
         <div class="footer-inner">
           <div class="menu">
-            <a href="#">공지사항</a>|
-            <a href="#">이용약관</a>|
-            <a href="#">개인정보처리방침</a>
+            <a th:href="@{/board/noticelist}">공지사항</a>|
+            <a th:href="@{/board/rulelist}">이용규칙</a>|
+            <a href="http://www.dmu.ac.kr/dongyang/index.do"> 동양미래대학교 </a>
           </div>
           <div class="sns">
             <a href="#">

@@ -173,16 +173,10 @@ width:100%;
 .carousel-item.item1 {
   background-image: url("https://raw.githubusercontent.com/parkzu/ImageSource/main/mbtilogo.png");
   background-position: left center;
-
 }
-
 .carousel-item.item2 {
   background-image: url("https://raw.githubusercontent.com/parkzu/ImageSource/main/secondtest.png");
   background-position: center top;
-}
-.carousel-item.item3 {
-  background-image: url("https://raw.githubusercontent.com/parkzu/ImageSource/main/mbtilogo.png");
-  background-position: center center;
 }
 .helper{
   display: inline-block;

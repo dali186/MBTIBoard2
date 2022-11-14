@@ -1,161 +1,161 @@
 <!DOCTYPE html>
 <html lang="en" xmlns:sec="http://www.w3.org/1999/xhtml">
 <head>
-  <title>얼음땡</title>
-  <meta charset="utf-8">
+    <title>얼음땡</title>
+    <meta charset="utf-8">
 
-  <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
-        integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
-  <link rel="stylesheet" th:href="@{/css/list.css}">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/earlyaccess/notosanskr.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta/css/bootstrap.min.css"
+          integrity="sha384-/Y6pD6FV/Vv2HJnA6t+vslU6fwYXjCFtcEpHbNJ0lyAFsXTsjBbfaDjzALeQsN6M" crossorigin="anonymous">
+    <link rel="stylesheet" th:href="@{/css/list.css}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR&display=swap" rel="stylesheet">
 
 </head>
 
 <body>
 <nav id="header">
-  <div id="right-menu">
-    <li>
-      <span th:if="${#session?.getId()}" sec:authentication="name"></span>
-      <a id="mypage" th:if="${#session?.getId()}" th:href="@{/modForm}">마이페이지</a>
-      <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
-      <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
-    </li>
-  </div>
-  <div>
-    <div id="logo">
-
-      <ul id="dropmenu">
-        <a id="navbar-brand" th:href="@{/}">
-          <img th:src="@{/img/logo.png}" height="50px">
-
-        </a>
-        <li id="current">
-          <a>공지사항</a>
-          <ul id="list1">
-            <li><a th:href="@{/board/noticelist}" id="l1">공지있어요!</a></li>
-            <li><a th:href="@{/board/rulelist}" id="l1">규칙있어요!</a></li>
-          </ul>
-        </li>
-        <li >
-          <a>커뮤니티</a>
-          <ul id="list1">
-            <li><a th:href="@{/board/freelist}" id="l1">할말있어요!</a></li>
-            <li><a href="pop.html" id="l1">인기있어요!</a></li>
-          </ul>
-        </li>
+    <div id="right-menu">
         <li>
-          <a>I 모여라!</a>
-          <ul id="list1">
-            <li><a th:href="@{/board/ilist}" id="l1">I 할말있어요!</a></li>
-            <li><a th:href="@{/board/iqalist}" id="l1">I 질문있어요!</a></li>
-          </ul>
+            <span th:if="${#session?.getId()}" sec:authentication="name"></span>
+            <a id="mypage" th:if="${#session?.getId()}" th:href="@{/modForm}">마이페이지</a>
+            <a id="logout" th:if="${#session?.getId()}" th:href="@{/logout}">로그아웃</a>
+            <a id="login" th:unless="${#session?.getId()}" th:href="@{/loginForm}">로그인</a>
         </li>
-        <li>
-          <a>E 모여라!</a>
-          <ul id="list1">
-            <li><a th:href="@{/board/elist}" id="l1">E 할말있어요!</a></li>
-            <li><a th:href="@{/board/eqalist}" id="l1">E 질문있어요!</a></li>
-          </ul>
-        </li>
-      </ul>
     </div>
+    <div>
+        <div id="logo">
 
-  </div>
+            <ul id="dropmenu">
+                <a id="navbar-brand" th:href="@{/}">
+                    <img th:src="@{/img/logo.png}" height="50px">
+
+                </a>
+                <li id="current">
+                    <a id="effect">공지사항</a>
+                    <ul id="list1">
+                        <li><a th:href="@{/board/noticelist}" id="effect">공지있어요!</a></li>
+                        <li><a th:href="@{/board/rulelist}" id="effect">규칙있어요!</a></li>
+                    </ul>
+                </li>
+                <li >
+                    <a id="effect">커뮤니티</a>
+                    <ul id="list1">
+                        <li><a th:href="@{/board/freelist}" id="effect">할말있어요!</a></li>
+                        <li><a href="pop.html" id="effect">인기있어요!</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="effect">I 모여라!</a>
+                    <ul id="list1">
+                        <li><a th:href="@{/board/ilist}" id="effect">I 할말있어요!</a></li>
+                        <li><a th:href="@{/board/iqalist}" id="effect">I 질문있어요!</a></li>
+                    </ul>
+                </li>
+                <li>
+                    <a id="effect">E 모여라!</a>
+                    <ul id="list1">
+                        <li><a th:href="@{/board/elist}" id="effect">E 할말있어요!</a></li>
+                        <li><a th:href="@{/board/eqalist}" id="effect">E 질문있어요!</a></li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
 </nav>
 
 <hr/>
 <div id="body-wrapper">
-  <h3>규칙있어요!</h3>
-  <div id="body-content">
-    <div id="wrapper">
-      <div class="container">
-        <div class="col-md-12">
-          <table class="table table-striped table-horizontal table-bordered mt-3">
-            <thead class="thead-strong">
-            <tr>
-              <th width="10%">게시글번호</th>
-              <th>제목</th>
-              <th width="20%">작성자</th>
-              <th width="20%">작성일</th>
-            </tr>
-            </thead>
-            <tbody id="tbody">
-            <tr th:each="RuleBoard, board : ${list}">
-              <td th:text="${RuleBoard.boardNo}"></td>
-              <td>
-                <a th:text="${RuleBoard.boardTitle}"
-                   th:href="@{/board/ruleview/{id}(id=${RuleBoard.boardNo})}"></a>
-              </td>
-              <td th:text="${RuleBoard.boardAuthor}"></td>
-              <td th:text="${RuleBoard.regDate}"></td>
-            </tr>
-            </tbody>
-          </table>
-          <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
-            <a th:if="${page != nowPage}"
-               th:href="@{/board/rulelist(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}"
-               th:text="${page}"></a>
-            <strong th:if="${page == nowPage}" th:text="${page}" style="color: red"></strong>
-          </th:block>
-          <div id="searchblank">
-            <form id="searchmenu" class="d-flex" role="search" th:action="@{/board/rulelist}" method="get">
-              <input id="searchbar" class="form-control me-2" style="width: 200px;" type="text" name="searchKeyword" placeholder="검색어를 입력하세요." aria-label="Search">
-              <button id="searchbutton" class="btn btn-outline-success" type="submit">
-                <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
-              </button>
-            </form>
-          </div>
-          <th:block>
-            <button type="button" class="btn btn-primary"
-                    onclick="javascript:location.href='/board/rulewrite'">글쓰기
-            </button>
-          </th:block>
+    <h3>규칙있어요!</h3>
+    <div id="body-content">
+        <div id="wrapper">
+            <div class="container">
+                <div class="col-md-12">
+                    <table class="table table-striped table-horizontal table-bordered mt-3">
+                        <thead class="thead-strong">
+                        <tr>
+                            <th width="10%">게시글번호</th>
+                            <th>제목</th>
+                            <th width="20%">작성자</th>
+                            <th width="20%">작성일</th>
+                        </tr>
+                        </thead>
+                        <tbody id="tbody">
+                        <tr th:each="RuleBoard, board : ${list}">
+                            <td th:text="${RuleBoard.boardNo}"></td>
+                            <td>
+                                <a th:text="${RuleBoard.boardTitle}"
+                                   th:href="@{/board/ruleview/{id}(id=${RuleBoard.boardNo})}"></a>
+                            </td>
+                            <td th:text="${RuleBoard.boardAuthor}"></td>
+                            <td th:text="${RuleBoard.regDate}"></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                    <th:block th:each="page : ${#numbers.sequence(startPage, endPage)}">
+                        <a th:if="${page != nowPage}"
+                           th:href="@{/board/rulelist(page = ${page - 1}, searchKeyword = ${param.searchKeyword})}"
+                           th:text="${page}"></a>
+                        <strong th:if="${page == nowPage}" th:text="${page}" style="color: red"></strong>
+                    </th:block>
+                    <div id="searchblank">
+                        <form id="searchmenu" class="d-flex" role="search" th:action="@{/board/rulelist}" method="get">
+                            <input id="searchbar" class="form-control me-2" style="width: 200px;" type="text" name="searchKeyword" placeholder="검색어를 입력하세요." aria-label="Search">
+                            <button id="searchbutton" class="btn btn-outline-success" type="submit">
+                                <img src="https://cdn-icons-png.flaticon.com/512/54/54481.png" height="18px">
+                            </button>
+                        </form>
+                    </div>
+                    <th:block>
+                        <button type="button" class="btn btn-primary"
+                                onclick="javascript:location.href='/board/rulewrite'">글쓰기
+                        </button>
+                    </th:block>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </div>
 <script src="/js/lib/jquery.min.js"></script>
 <footer>
-  <div id="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
+    <div id="footer">
         <div class="footer-inner">
-          <div class="menu">
-            <a href="#">공지사항</a>|
-            <a href="#">이용약관</a>|
-            <a href="#">개인정보처리방침</a>
-          </div>
-          <div class="sns">
-            <a href="#">
-              <img th:src="@{/img/logo.png}" width="100px" height="40px">
-            </a>
-          </div>
-        </div>
-      </div>
-      <div class="footer-bottom">
-        <div class="info">
-          명칭 :
-          <b>얼음땡</b>
-          <b class="span">|</b>
-          소속 :
-          <b>동양미래대학교 컴퓨터정보공학과</b>
-          <b class="span">|</b>
-          제작그룹 :
-          <b>7팀</b>
-          <span>
+            <div class="footer-top">
+                <div class="footer-inner">
+                    <div class="menu">
+                        <a href="#">공지사항</a>|
+                        <a href="#">이용약관</a>|
+                        <a href="#">개인정보처리방침</a>
+                    </div>
+                    <div class="sns">
+                        <a href="#">
+                            <img th:src="@{/img/logo.png}" width="100px" height="40px">
+                        </a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <div class="info">
+                    명칭 :
+                    <b>얼음땡</b>
+                    <b class="span">|</b>
+                    소속 :
+                    <b>동양미래대학교 컴퓨터정보공학과</b>
+                    <b class="span">|</b>
+                    제작그룹 :
+                    <b>7팀</b>
+                    <span>
                 <br/>
                 얼음땡의 콘텐츠는 저작권법의 보호를 받으므로, 무단 전재, 복사, 배포 등을 금합니다.
                 <br/>
                 Copyrightⓒ <span class="icebreak">얼음땡</span>. All rights reserved.
               </span>
+                </div>
+            </div>
         </div>
-      </div>
     </div>
-  </div>
 </footer>
 </body>
 
